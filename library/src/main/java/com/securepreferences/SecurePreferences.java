@@ -82,6 +82,15 @@ public class SecurePreferences implements SharedPreferences {
         this(context, "", null);
     }
 
+    /**
+     * User password defaults to app generated password that's stores obfucated with the other preference values. Also this uses the Default shared pref file
+     *
+     * @param context should be ApplicationContext not Activity
+     */
+    public SecurePreferences(Context context, String salt) {
+        this(context, "", salt, null, ORIGINAL_ITERATION_COUNT);
+    }
+
 
     /**
      * @param context        should be ApplicationContext not Activity
