@@ -148,7 +148,7 @@ public class SecurePreferences implements SharedPreferences {
         } else if (TextUtils.isEmpty(password)) {
             // Initialize or create encryption key
             try {
-                final String key = generateAesKeyName(context, iterationCount);
+                final String key = sharedPreferences.getString("keyName", generateAesKeyName(context, iterationCount));
 
                 String keyAsString = sharedPreferences.getString(key, null);
                 if (keyAsString == null) {
